@@ -11,6 +11,7 @@ process_this_frame = True
 
 while True:
     ret, frame = video_capture.read()
+    # frame 좌우 반전
     frame = cv2.flip(frame, 1)
 
     small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
