@@ -5,7 +5,9 @@ import cv2
 # Reference: https://github.com/ageitgey/face_recognition/blob/master/examples/facerec_from_webcam_faster.py
 
 # Get a reference to webcam #0
-capture = cv2.VideoCapture(0)
+# If the file is processed with the code below, a warning related to MSMF will be generated.
+# capture = cv2.VideoCapture(0)
+capture = cv2.VideoCapture(cv2.CAP_DSHOW)
 
 # Initialize variables
 face_locations = []
@@ -33,6 +35,7 @@ while True:
 
         # CUDA available
         # face_locations = FR.face_locations(rgb_small_frame, model="cnn")
+
         face_encodings = FR.face_encodings(rgb_small_frame, face_locations)
 
     process_this_frame = not process_this_frame
