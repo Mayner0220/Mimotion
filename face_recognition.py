@@ -1,12 +1,11 @@
 import face_recognition as FR
 import cv2
-import face_recognition_models
 
 # face_recognition library: https://github.com/ageitgey/face_recognition
 # Reference: https://github.com/ageitgey/face_recognition/blob/master/examples/facerec_from_webcam_faster.py
 
 # Get a reference to webcam #0
-capture = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+capture = cv2.VideoCapture(0)
 
 # Initialize variables
 face_locations = []
@@ -30,10 +29,10 @@ while True:
         # depending on the user's use of CUDA.
 
         # CUDA unavailable
-        # face_locations = FR.face_locations(rgb_small_frame)
+        face_locations = FR.face_locations(rgb_small_frame)
 
         # CUDA available
-        face_locations = FR.face_locations(rgb_small_frame, model="cnn")
+        # face_locations = FR.face_locations(rgb_small_frame, model="cnn")
         face_encodings = FR.face_encodings(rgb_small_frame, face_locations)
 
     process_this_frame = not process_this_frame
