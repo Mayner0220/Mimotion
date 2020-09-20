@@ -1,1 +1,1 @@
-import face_recognition
+import FR

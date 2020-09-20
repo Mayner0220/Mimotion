@@ -1,10 +1,10 @@
-import face_recognition as FR
+import FR as FR
 import cv2
 
 video_capture = cv2.VideoCapture(cv2.CAP_DSHOW)
 
-face_locations = []
-face_encodings = []
+# face_locations = []
+# face_encodings = []
 face_names = []
 process_this_frame = True
 

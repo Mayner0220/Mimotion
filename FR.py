@@ -10,13 +10,18 @@ import cv2
 capture = cv2.VideoCapture(cv2.CAP_DSHOW)
 
 # Initialize variables
-face_locations = []
-face_encodings = []
+# These codes below will be deleted.
+# face_locations = []
+# face_encodings = []
+
 process_this_frame = True
 
 while True:
     # Grab a single frame of capture
     ret, frame = capture.read()
+
+    # frame left and right reversion
+    frame = cv2.flip(frame, 1)
 
     # Resize frame of capture to 1/4 size
     # For faster face recognition prcoessing
