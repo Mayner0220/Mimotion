@@ -68,3 +68,6 @@ while True:
 # Release handle to the webcam
 capture.release()
 cv2.destroyAllWindows()
+
+# This code will later be converted to a code
+# that returns whether or not your face has been recognized.

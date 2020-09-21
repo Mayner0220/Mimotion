@@ -1,4 +1,4 @@
-import FR as FR
+import face_recog as FR
 import cv2
 
 video_capture = cv2.VideoCapture(cv2.CAP_DSHOW)

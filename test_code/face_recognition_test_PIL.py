@@ -1,10 +1,10 @@
-import FR
+import face_recog
 from PIL import Image, ImageDraw
 
-test_img = FR.load_image_file("test.jpg")
+test_img = face_recog.load_image_file("test.jpg")
 
-test_face_locations = FR.face_locations(test_img)
-test_face_encoding = FR.face_encodings(test_img, test_face_locations)
+test_face_locations = face_recog.face_locations(test_img)
+test_face_encoding = face_recog.face_encodings(test_img, test_face_locations)
 
 pil_img = Image.fromarray(test_img)
 draw = ImageDraw.Draw(pil_img)

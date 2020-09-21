@@ -1,4 +1,4 @@
-import FR as FR
+import face_recog as FR
 import cv2 as cv
 
 test_img = FR.load_image_file("test.jpg")
