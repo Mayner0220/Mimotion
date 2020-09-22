@@ -1,4 +1,5 @@
 import face_recognition as FR
+from tensorflow import test
 import cv2
 
 # face_recognition library: https://github.com/ageitgey/face_recognition
@@ -8,6 +9,15 @@ import cv2
 # If the file is processed with the code below, a warning related to MSMF will be generated.
 # capture = cv2.VideoCapture(0)
 capture = cv2.VideoCapture(cv2.CAP_DSHOW)
+
+gpu_available = False
+
+# GPU available test
+if test.is_gpu_available():
+    print("CUDA Status: available")
+    gpu_available = True
+else:
+    print("CUDA Status: unavailable")
 
 # Initialize variables
 # These codes below will be deleted.
@@ -35,11 +45,12 @@ while True:
         # It will be developed to determine whether the CNN model will be used or not,
         # depending on the user's use of CUDA.
 
-        # CUDA unavailable
-        face_locations = FR.face_locations(rgb_small_frame)
-
-        # CUDA available
-        # face_locations = FR.face_locations(rgb_small_frame, model="cnn")
+        if gpu_available:
+            # CUDA available
+            face_locations = FR.face_locations(rgb_small_frame, model="cnn")
+        else:
+            # CUDA unavailable
+            face_locations = FR.face_locations(rgb_small_frame)
 
         face_encodings = FR.face_encodings(rgb_small_frame, face_locations)
 
