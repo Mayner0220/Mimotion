@@ -72,6 +72,11 @@ while True:
     # Display the result image
     cv2.imshow("Face Recognition", frame)
 
+    # # Return True if face is recognized.
+    # def face_check():
+    #     if face_locations:
+    #         return True
+
     # Push the 'q' key on keyboard to quit
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
