@@ -14,3 +14,7 @@ test_image = np.array(Image.open(test_data))
 # Get label from data path
 def get_label(path):
     return path.split("\\")[-2]
+
+def read_image(path):
+    image = np.array(Image.open(path))
+    return image.reshape(image.shape[0], image.shape[1], 1)
