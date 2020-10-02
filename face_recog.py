@@ -20,6 +20,10 @@ def gpu_test():
 # capture = cv2.VideoCapture(0)
 capture = cv2.VideoCapture(cv2.CAP_DSHOW)
 
+# Set the size of capture
+capture.set(3, 480)
+capture.set(4, 480)
+
 gpu = gpu_test()
 
 # gpu_available = False
