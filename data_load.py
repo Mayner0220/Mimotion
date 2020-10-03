@@ -62,5 +62,3 @@ for n, path in enumerate(train_data[:batch_size]):
     batch_label[n, :] = onehot_label
 
 print(batch_image.shape, batch_label.shape)
-
-batch_per_epoch = len(train_data) // batch_size
