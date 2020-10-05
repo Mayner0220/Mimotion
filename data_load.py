@@ -1,5 +1,4 @@
 # Reference: https://medium.com/trackin-datalabs/data-input-%EB%A7%8C%EB%93%A4%EA%B8%B0-74bb5c1ce52f
-import os
 from glob import glob
 from PIL import Image
 import numpy as np
@@ -62,3 +61,7 @@ for n, path in enumerate(train_data[:batch_size]):
     batch_label[n, :] = onehot_label
 
 print(batch_image.shape, batch_label.shape)
+test1 = Image.open(train_data[100])
+test2 = Image.open(train_data[101])
+test1.show()
+test2.show()
