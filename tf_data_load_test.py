@@ -40,8 +40,7 @@ def _read_py_function(path, label):
 
 def dataset_map(dataset, image_list, label_list):
     dataset = dataset.map(lambda image_list, label_list: tuple(
-        tf.py_function(_read_py_function, [image_list, label_list], [tf.int32, tf.uint8])
-    ))
+        tf.py_function(_read_py_function, [image_list, label_list], [tf.int32, tf.uint8])))
 
     return dataset
 
@@ -58,4 +57,6 @@ test_dataset = tf.data.Dataset.from_tensor_slices((test_image_list, test_label_n
 # map_train_dataset = dataset_map(train_dataset, read_image(train_data), get_label(train_label_name_list))
 # map_test_dataset = dataset_map(test_dataset, read_image(test_data), get_label(test_label_name_list))
 
-map_train_dataset = train_dataset.map(lambda train_data, train_label_name_list: tuple())
+map_train_dataset = train_dataset.map(lambda tzrain_data, train_label_name_list: tuple(
+    tf.py_function(_read_py_function, [train_data, train_label_name_list], [tf.int32, tf.uint8])
+))
