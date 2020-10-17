@@ -81,4 +81,4 @@ def main(argv):
             print('shape %', classes.shape)
 
 if __name__ == '__main__':
-  main(sys.argv)
+    main(sys.argv)
