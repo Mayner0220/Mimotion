@@ -34,3 +34,7 @@ with tf.io.TFRecordWriter(filename) as writer:
         example = serialize_example(feature0[i], feature1[i], feature2[i], feature3[i])
 
 writer.write(example)
+
+"""
+Tensorflow core v2.3.0에서 tf.io.tf_record_iterator API가 지원 중단됨
+"""
