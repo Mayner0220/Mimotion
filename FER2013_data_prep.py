@@ -15,7 +15,7 @@ train_generator = Generator.flow_from_directory(
 test_generator = Generator.flow_from_directory(
     "./dataset/test",
     target_size=(48, 48),
-    #   color_mode="grayscale",
+    #color_mode="grayscale",
     batch_size=32,
     class_mode="categorical"
 )
@@ -23,8 +23,12 @@ test_generator = Generator.flow_from_directory(
 x_train, y_train = train_generator.next()
 x_test, y_test = test_generator.next()
 
-plt.imshow(x_train[0])
-plt.show()
+x_shape = x_train.shape
+y_shape = y_train.shape
+
+print("==============[Dataset Information]==============")
+print("shape of train dataset:", x_shape)
+print("shape of test dataset:", y_shape)
 
 # import sys
 # import pickle
