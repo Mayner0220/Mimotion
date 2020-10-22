@@ -1,7 +1,6 @@
 import cv2
 import argparse
 import numpy as np
-import tensorflow as tf
 from model import Model
 from plot_history import plot_model
 from tensorflow.keras.optimizers import Adam
@@ -14,14 +13,18 @@ num_train = 28709
 
 model = Model()
 
-ap = argparse.ArgumentParser()
-ap.add_argument("--mode",help="train/display")
-mode = ap.parse_args().mode
+# ap = argparse.ArgumentParser("Choose mode")
+# ap.add_argument("--mode", help="train/display")
+# mode = ap.parse_args().mode
+
+mode = input("[Mode]\n>> ")
+
+print("Mode:", mode)
 
 # Train same model or try other models
 if mode == "train":
     model.compile(loss="categorical_crossentropy", optimizer=Adam(lr=0.0001, decay=1e-6), metrics=["accuracy"])
-    model_info = model.fit_generator(
+    model_info = model.fit(
         train_generator,
         steps_per_epoch=num_train // batch_size,
         epochs=epoch,
