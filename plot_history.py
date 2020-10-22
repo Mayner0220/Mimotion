@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def plot_history(model_history):
+def plot_model(model_history):
     fig, axs = plt.subplots(1, 2, figsize=(15, 5))
 
     # accuracy history 요약
