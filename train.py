@@ -4,6 +4,7 @@ import numpy as np
 from model import Model
 from plot_history import plot_model
 from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.callbacks import History
 from FER2013_data_prep import train_generator, validation_generator
 
 epoch = 50
@@ -12,6 +13,7 @@ batch_size = 64
 num_train = 28709
 
 model = Model()
+callback = [History()]
 
 # ap = argparse.ArgumentParser("Choose mode")
 # ap.add_argument("--mode", help="train/display")
@@ -29,10 +31,16 @@ if mode == "train":
         steps_per_epoch=num_train // batch_size,
         epochs=epoch,
         validation_data=validation_generator,
-        validation_steps=num_val // batch_size
+        validation_steps=num_val // batch_size,
+        callbacks=callback
     )
 
+    #model_info["accuracy"]
+
     plot_model(model_info)
+
+    print(model_info.history["accuracy"])
+    print(model_info["accuracy"])
 
     model.save_weights("weight/model.h5")
 
