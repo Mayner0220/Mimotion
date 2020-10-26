@@ -56,12 +56,14 @@ elif mode == "display":
     while True:
         ret, frame = cap.read()
 
+        frame = cv2.flip(frame, 1)
+
         if not ret:
             break
 
         facecasc = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        faces = facecasc .detectMultiScale(gray, scaleFactor=1.3, minNeighbors=5)
+        faces = facecasc.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=5)
 
         for(x, y, w, h) in faces:
             cv2.rectangle(frame, (x, y-50), (x+w, y+h+10), (255, 0, 0), 2)
