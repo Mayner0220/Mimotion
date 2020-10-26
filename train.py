@@ -2,9 +2,9 @@ import cv2
 import argparse
 import numpy as np
 from model import Model
+import tensorflow as tf
 from plot_history import plot_model
 from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.callbacks import History
 from FER2013_data_prep import train_generator, validation_generator
 
 epoch = 50
@@ -12,8 +12,11 @@ num_val = 7178
 batch_size = 64
 num_train = 28709
 
+def DNC(function):
+    return tf.autograph.experimental.do_not_convert(function)
+
 model = Model()
-callback = [History()]
+callback = [DNC(tf.keras.callbacks.History())]
 
 # ap = argparse.ArgumentParser("Choose mode")
 # ap.add_argument("--mode", help="train/display")
@@ -35,14 +38,9 @@ if mode == "train":
         callbacks=callback
     )
 
-    #model_info["accuracy"]
+    model.save_weights("weight/model.h5")
 
     plot_model(model_info)
-
-    print(model_info.history["accuracy"])
-    print(model_info["accuracy"])
-
-    model.save_weights("weight/model.h5")
 
 # emotions will be displayed on your face from the webcam feed
 elif mode == "display":
