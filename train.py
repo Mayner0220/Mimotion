@@ -18,6 +18,7 @@ def DNC(function):
 model = Model()
 callback = [DNC(tf.keras.callbacks.History())]
 
+# Temporarily disable the argparse library for fast debugging
 # ap = argparse.ArgumentParser("Choose mode")
 # ap.add_argument("--mode", help="train/display")
 # mode = ap.parse_args().mode
