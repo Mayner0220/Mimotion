@@ -7,7 +7,7 @@
 
 또한 이 프로젝트의 일부 내용은 atulapra의 Emotion-detection 프로젝트를 참조하여 개발되었습니다.
 
-[atulapra : Emotion-detection](https://github.com/atulapra/Emotion-detection)
+- Reference: [atulapra : Emotion-detection](https://github.com/atulapra/Emotion-detection)
 
 ## Skillset
 - Tensorflow core v2.3.0
