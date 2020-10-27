@@ -5,6 +5,8 @@ def plot_model(model_history):
     fig, axs = plt.subplots(1, 2, figsize=(15, 5))
 
     # accuracy history 요약
+    # model_history로 history를 호출할 수 있으나
+    # 알맞지 않은 데이터 타입으로 에러가 발생
     axs[0].plot(range(1, len(model_history.history["accuracy"])+1, model_history.history["accuracy"]))
     axs[0].plot(range(1, len(model_history.history["val_accuracy"])+1, model_history.history["val_accuracy"]))
 
