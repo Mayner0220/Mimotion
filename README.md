@@ -23,3 +23,7 @@
 - Consist: 35887 face images
 - Size: 48x48 Size
 - Categories: angry, disgusted, fear, happy, neutral, sad, surprised (7 categories)
+
+## Accuracy / Loss
+
+![](C:\Users\User\Desktop\Project\Mimotion\plot.png)
