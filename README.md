@@ -26,4 +26,4 @@
 
 ## Accuracy / Loss
 
-![](C:\Users\User\Desktop\Project\Mimotion\plot.png)
+![](plot.png)
