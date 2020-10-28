@@ -12,20 +12,15 @@ num_val = 7178
 batch_size = 64
 num_train = 28709
 
-def DNC(function):
-    return tf.autograph.experimental.do_not_convert(function)
-
 model = Model()
-callback = [DNC(tf.keras.callbacks.History())]
 
 # Temporarily disable the argparse library for fast debugging
-# ap = argparse.ArgumentParser("Choose mode")
-# ap.add_argument("--mode", help="train/display")
-# mode = ap.parse_args().mode
+ap = argparse.ArgumentParser("Choose mode")
+ap.add_argument("--mode", help="train/display")
+mode = ap.parse_args().mode
 
-mode = input("[Mode]\n>> ")
-
-print("Mode:", mode)
+# mode = input("[Mode]\n>> ")
+# print("Mode:", mode)
 
 # Train same model or try other models
 if mode == "train":
@@ -35,8 +30,8 @@ if mode == "train":
         steps_per_epoch=num_train // batch_size,
         epochs=epoch,
         validation_data=validation_generator,
-        validation_steps=num_val // batch_size,
-        callbacks=callback
+        validation_steps=num_val // batch_size
+        #callbacks=callback
     )
 
     model.save_weights("weight/model.h5")
