@@ -2,7 +2,6 @@ import cv2
 import argparse
 import numpy as np
 from model import Model
-import tensorflow as tf
 from plot_history import plot_model
 from tensorflow.keras.optimizers import Adam
 from FER2013_data_prep import train_generator, validation_generator
